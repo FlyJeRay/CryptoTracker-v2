@@ -1,0 +1,41 @@
+$phoneWidth: 500px;
+
+.page_header {
+  display: flex;
+  flex-direction: row;
+
+  align-items: center;
+  justify-content: space-between;
+  gap: 32px;
+  padding: 16px 64px;
+
+  background-color: #150050;
+
+  height: 50px;
+
+  .header_title {
+    margin: 0;
+    text-align: center;
+
+    color: white;
+
+    font-family: Kanit;
+    font-weight: 700;
+    font-style: italic;
+    font-size: 32px;
+  }
+
+  .header_select_bar {
+    font-family: Kanit;
+
+    max-width: 600px;
+    width: 100%;
+  }
+
+  @media screen and (max-width: $phoneWidth) {
+    height: 100px;
+    padding: 16px;
+    gap: 8px;
+    flex-direction: column;
+  }
+}

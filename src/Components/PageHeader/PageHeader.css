@@ -1,0 +1,48 @@
+.page_header {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  gap: 32px;
+  padding: 16px 64px;
+  background-color: #150050;
+  height: 50px;
+}
+
+.page_header .header_title {
+  margin: 0;
+  text-align: center;
+  color: white;
+  font-family: Kanit;
+  font-weight: 700;
+  font-style: italic;
+  font-size: 32px;
+}
+
+.page_header .header_select_bar {
+  font-family: Kanit;
+  max-width: 600px;
+  width: 100%;
+}
+
+@media screen and (max-width: 500px) {
+  .page_header {
+    height: 100px;
+    padding: 16px;
+    gap: 8px;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+            flex-direction: column;
+  }
+}
+/*# sourceMappingURL=PageHeader.css.map */
