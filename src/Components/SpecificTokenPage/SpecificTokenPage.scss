@@ -6,7 +6,7 @@
 
   border-radius: 5px;
 
-  padding: 16px 32px;
+  padding: 24px 32px;
 
   max-width: 900px;
   width: 100%;
@@ -20,7 +20,7 @@
 
   h4 {
     font-size: 36px;
-    margin: 0 0 24px 0;
+    margin: 0;
   }
 
   p {
@@ -33,5 +33,26 @@
     flex-direction: row;
 
     gap: 12px;
+  }
+
+  .chart_container {
+    display: flex;
+
+    font-family: Kanit;
+    font-size: 12px;
+
+    align-items: center;
+
+    margin-top: 32px;
+    background-color: #3F0071;
+
+    width: 100%;
+
+    border-radius: inherit;
+    border: none;
+
+    div {
+      margin: 10px 10px 10px 0;
+    }
   }
 }
