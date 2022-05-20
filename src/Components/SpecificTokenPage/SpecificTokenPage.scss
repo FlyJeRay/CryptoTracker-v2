@@ -1,5 +1,37 @@
-.specific_page_title {
-  font-family: Kanit;
-  color: white;
-  text-align: center;
+.specific_token_block {
+  display: flex;
+  flex-direction: column;
+
+  background-color: #150050;
+
+  border-radius: 5px;
+
+  padding: 16px 32px;
+
+  max-width: 900px;
+  width: 100%;
+
+  margin: 36px auto;
+
+  h4, p { 
+    font-family: Kanit;
+    color: white;
+  }
+
+  h4 {
+    font-size: 36px;
+    margin: 0 0 24px 0;
+  }
+
+  p {
+    font-size: 20px;
+    margin: 6px 0;
+  }
+
+  .price_block {
+    display: flex;
+    flex-direction: row;
+
+    gap: 12px;
+  }
 }

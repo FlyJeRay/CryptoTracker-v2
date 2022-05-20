@@ -1,6 +1,42 @@
-.specific_page_title {
+.specific_token_block {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  background-color: #150050;
+  border-radius: 5px;
+  padding: 16px 32px;
+  max-width: 900px;
+  width: 100%;
+  margin: 36px auto;
+}
+
+.specific_token_block h4, .specific_token_block p {
   font-family: Kanit;
   color: white;
-  text-align: center;
+}
+
+.specific_token_block h4 {
+  font-size: 36px;
+  margin: 0 0 24px 0;
+}
+
+.specific_token_block p {
+  font-size: 20px;
+  margin: 6px 0;
+}
+
+.specific_token_block .price_block {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+  gap: 12px;
 }
 /*# sourceMappingURL=SpecificTokenPage.css.map */
