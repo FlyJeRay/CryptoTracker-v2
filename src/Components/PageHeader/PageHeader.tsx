@@ -64,7 +64,7 @@ function PageHeader() {
 
   return (
     <div className="page_header">
-      <h4 className="header_title">CryptoTracker</h4>
+      <a href="/"><h4>CryptoTracker</h4></a>
       <Select onChange={(newValue) => {
         if (newValue) {
           OnCurrencyChange(newValue.value);

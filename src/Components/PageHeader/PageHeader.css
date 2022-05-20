@@ -18,7 +18,7 @@
   height: 50px;
 }
 
-.page_header .header_title {
+.page_header h4 {
   margin: 0;
   text-align: center;
   color: white;
@@ -32,6 +32,19 @@
   font-family: Kanit;
   max-width: 600px;
   width: 100%;
+}
+
+.page_header a {
+  text-decoration: none;
+}
+
+.page_header a h4 {
+  -webkit-transition: all 0.15s;
+  transition: all 0.15s;
+}
+
+.page_header a h4:hover {
+  color: #610094;
 }
 
 @media screen and (max-width: 500px) {

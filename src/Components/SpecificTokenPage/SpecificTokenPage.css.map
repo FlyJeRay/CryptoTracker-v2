@@ -1,0 +1,9 @@
+{
+    "version": 3,
+    "mappings": "AAAA,AAAA,oBAAoB,CAAC;EACnB,WAAW,EAAE,KAAK;EAClB,KAAK,EAAE,KAAK;EACZ,UAAU,EAAE,MAAM;CACnB",
+    "sources": [
+        "SpecificTokenPage.scss"
+    ],
+    "names": [],
+    "file": "SpecificTokenPage.css"
+}
