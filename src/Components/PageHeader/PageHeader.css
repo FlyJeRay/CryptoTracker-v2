@@ -44,7 +44,8 @@
 }
 
 .page_header a h4:hover {
-  color: #610094;
+  color: pink;
+  letter-spacing: 0.3px;
 }
 
 @media screen and (max-width: 500px) {

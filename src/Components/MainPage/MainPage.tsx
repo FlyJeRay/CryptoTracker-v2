@@ -46,6 +46,32 @@ function MainPage() {
       window.location.href = '/info_bitcoin';
     }
   }
+  
+  const DisplayBiggestChange = () => {
+    let biggestChange: number = 0;
+    let changeColor: string = 'white';
+     // bitcoin is just written as a placeholder token
+    let tokenWithBiggestChange: string = 'Bitcoin';
+    let tokenID: string = 'bitcoin';
+
+    Currencies?.data.forEach((cur) => {
+      if (Math.abs(parseFloat(cur.changePercent24Hr)) > biggestChange) {
+        biggestChange = parseFloat(parseFloat(cur.changePercent24Hr).toFixed(2));
+        tokenWithBiggestChange = cur.name;
+        tokenID = cur.id;
+      }
+    });
+
+    const changeConvertedToString: string = biggestChange > 0 ? `+${biggestChange}%` : `${biggestChange.toString()}%`;
+    changeColor = biggestChange > 0 ? '#03c9a9' : '#f22613';
+
+    return (
+      <div onClick={() => GoToTokenPage(tokenID)} className="biggest_change_block">
+        <h2 style={{'color': changeColor}}> {changeConvertedToString} </h2>
+        <p> {tokenWithBiggestChange} </p>
+      </div>
+    )
+  }
 
   const DisplayTopSixCurrencies = () => {
     return(
@@ -97,7 +123,9 @@ function MainPage() {
         {
           DisplayTopSixCurrencies()
         }
-        <div className="biggest_change_block"></div>
+        {
+          DisplayBiggestChange()
+        }
       </div>
     </div>
   )

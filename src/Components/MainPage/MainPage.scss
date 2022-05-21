@@ -1,3 +1,6 @@
+$phoneWidthTrigger: 500px;
+$tabletWidthTrigger: 950px;
+
 @keyframes slideFromBottom {
   0% {
     transform: translateY(+400%);
@@ -17,17 +20,28 @@
   display: flex;
   flex-direction: row;
 
+  width: 1200px;
+  margin: 0 auto;
+
+  justify-content: center;
+
+  gap: 6px;
+
   .top6_block {
     display: flex;
     flex-direction: column;
+    
+    justify-content: center;
 
     margin: 16px auto;
+
+    height: 220px;
 
     background-color: #150050;
     border-radius: 5px;
 
     gap: 16px;
-    padding: 16px;
+    padding: 0 16px;
 
     .top6_block_row {
       display: flex;
@@ -70,6 +84,90 @@
           h4 {
             letter-spacing: 0.3px;
           }
+        }
+      }
+    }
+  }
+
+  .biggest_change_block {
+    display: flex;
+    flex-direction: column;
+
+    align-items: center;
+    justify-content: center;
+
+    aspect-ratio: 1/1;
+
+    margin: 16px auto;
+
+    height: 220px;
+
+    background-color: #3F0071;
+    border-radius: 5px;
+
+    h2, p {
+      font-family: Kanit;
+      color: white;
+    }
+
+    h2 {
+      font-size: 36px;
+    }
+
+    p {
+      font-style: italic;
+    }
+    
+    transition: all 0.15s;
+    &:hover {
+      background-color: #610094;
+      cursor: pointer;
+      h4 {
+        letter-spacing: 0.3px;
+      }
+    }
+  }
+}
+
+
+
+@media screen and (max-width: $tabletWidthTrigger) {
+  .mainpage_top_block {
+    flex-direction: column;
+    width: 100%;
+  
+    .top6_block {
+      width: 100%;
+      margin-bottom: 0;
+      margin-top: 6px;
+      padding: 0;
+
+      .top6_block_row {
+        margin: 0 16px
+      }
+    }
+
+    .biggest_change_block {
+      aspect-ratio: none;
+      width: 100%;
+      margin-top: 0;
+    }
+  }
+}
+
+@media screen and (max-width: $phoneWidthTrigger) {
+  .mainpage_top_block {
+    .top6_block {
+      height: auto;
+      width: 100%;
+      padding: 16px 0;
+      .top6_block_row {
+        margin: 0;
+        flex-direction: column;
+        align-items: center;
+        width: 100%;
+        .top6_currency {
+          width: 95%;
         }
       }
     }

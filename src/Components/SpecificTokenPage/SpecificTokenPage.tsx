@@ -68,21 +68,18 @@ function SpecificTokenPage() {
   const onPhoneSizeHandle = (matches: boolean) => {
     if (matches) {
       SetCurrentGraphWidth(300);
-      console.log('phone');
     }
   }
 
   const onTabletSizeHandle = (matches: boolean) => {
     if (matches) {
-      SetCurrentGraphWidth(750);
-      console.log('tablet');
+      SetCurrentGraphWidth(700);
     }
   }
 
   const onDesktopSizeHandle = (matches: boolean) => {
     if (matches) {
       SetCurrentGraphWidth(900);
-      console.log('desktop');
     }
   }
 
@@ -168,7 +165,6 @@ function SpecificTokenPage() {
       newXAxis.push(x);
     });
 
-    console.log(newChartData);
     SetChartData(newChartData);
     SetChartXAxis(newXAxis);
   }
