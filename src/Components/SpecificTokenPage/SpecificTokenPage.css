@@ -38,4 +38,10 @@
           flex-direction: row;
   gap: 12px;
 }
+
+.specific_token_block .price_history_title {
+  font-size: 14px;
+  font-style: italic;
+  margin-top: 32px;
+}
 /*# sourceMappingURL=SpecificTokenPage.css.map */

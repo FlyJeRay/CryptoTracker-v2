@@ -36,6 +36,7 @@ function SpecificTokenPage() {
   const [FetchedData, SetFetchedData] = useState<FetchedData>();
 
   const [ChartData, SetChartData] = useState<{x: number, y: number}[]>([]);
+  const [ChartXAxis, SetChartXAxis] = useState<number[]>([]);
   const [CurrentGraphWidth, SetCurrentGraphWidth] = useState<number>(900);
 
   const [TokenPrice, SetTokenPrice] = useState<string>('');
@@ -73,7 +74,7 @@ function SpecificTokenPage() {
 
   const onTabletSizeHandle = (matches: boolean) => {
     if (matches) {
-      SetCurrentGraphWidth(600);
+      SetCurrentGraphWidth(750);
       console.log('tablet');
     }
   }
@@ -147,12 +148,13 @@ function SpecificTokenPage() {
     const endDate = new Date();
 
     const startDate = new Date(endDate);
-    startDate.setDate(startDate.getDate() - 7);
+    startDate.setDate(startDate.getDate() - 8);
 
     const data = await fetch(`https://api.coincap.io/v2/assets/${tokenName}/history?start=${startDate.getTime()}&end=${endDate.getTime()}&interval=d1`);
     const json: FetchedPriceData = await data.json();
 
     const newChartData: {x: number, y: number}[] = [];
+    const newXAxis: number[] = [];
 
     json.data.forEach((dataBlock) => {
       const y: number = parseFloat(parseFloat(dataBlock.priceUsd).toFixed(2));
@@ -163,10 +165,12 @@ function SpecificTokenPage() {
       const chartBlock: {x: number, y: number} = {x, y};
 
       newChartData.push(chartBlock);
+      newXAxis.push(x);
     });
 
     console.log(newChartData);
     SetChartData(newChartData);
+    SetChartXAxis(newXAxis);
   }
  
   const PullTokenData = async () => {
@@ -193,7 +197,8 @@ function SpecificTokenPage() {
           <p style={{'color': PercentChangeColor}}>{PercentChange}</p>
         </div>
         <p>{MarketCap}</p>
-        <XYPlot style={{'fontFamily': 'Kanit', fill: 'none', 'fontSize': 8}} height={300} width={CurrentGraphWidth}>
+        <p className="price_history_title">Price History of {FetchedData?.data.name} for last week</p>
+        <XYPlot style={{'fontFamily': 'Kanit', fill: 'none'}} height={300} width={CurrentGraphWidth}>
           <LineSeries 
             color={'white'}
             data={ChartData} />
@@ -203,11 +208,15 @@ function SpecificTokenPage() {
             style={{
               line: {stroke: '#ADDDE1'},
               ticks: {stroke: '#ADDDE1'},
-            }} />
+              fontSize: 16
+            }}
+            tickFormat= {val => Math.round(val) === val ? val:''}
+            tickValues= {ChartXAxis} />
           <YAxis
             style={{
               line: {stroke: '#ADDDE1'},
-              ticks: {stroke: '#ADDDE1'}
+              ticks: {stroke: '#ADDDE1'},
+              fontSize: 7
             }} />
         </XYPlot>
       </div>
