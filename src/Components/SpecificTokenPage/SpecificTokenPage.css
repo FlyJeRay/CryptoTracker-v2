@@ -1,3 +1,29 @@
+@-webkit-keyframes slideFromBottom {
+  0% {
+    -webkit-transform: translateY(400%);
+            transform: translateY(400%);
+    opacity: 0;
+  }
+  100% {
+    -webkit-transform: translateY(0);
+            transform: translateY(0);
+    opacity: 1;
+  }
+}
+
+@keyframes slideFromBottom {
+  0% {
+    -webkit-transform: translateY(400%);
+            transform: translateY(400%);
+    opacity: 0;
+  }
+  100% {
+    -webkit-transform: translateY(0);
+            transform: translateY(0);
+    opacity: 1;
+  }
+}
+
 .specific_token_block {
   display: -webkit-box;
   display: -ms-flexbox;
@@ -6,6 +32,8 @@
   -webkit-box-direction: normal;
       -ms-flex-direction: column;
           flex-direction: column;
+  -webkit-animation: 1s slideFromBottom;
+          animation: 1s slideFromBottom;
   background-color: #150050;
   border-radius: 5px;
   padding: 16px 32px;
@@ -20,7 +48,15 @@
 
 .specific_token_block h4 {
   font-size: 36px;
-  margin: 0 0 24px 0;
+  margin: 8px 0 0 0;
+}
+
+.specific_token_block .token_symbol {
+  font-size: 16px;
+  font-weight: 200;
+  font-style: italic;
+  margin-top: 0;
+  margin-bottom: 24px;
 }
 
 .specific_token_block p {

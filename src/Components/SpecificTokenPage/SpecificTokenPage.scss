@@ -1,6 +1,19 @@
+@keyframes slideFromBottom {
+  0% {
+    transform: translateY(+400%);
+    opacity: 0;
+  }
+  100% {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+
 .specific_token_block {
   display: flex;
   flex-direction: column;
+
+  animation: 1s slideFromBottom;
 
   background-color: #150050;
 
@@ -19,7 +32,16 @@
 
   h4 {
     font-size: 36px;
-    margin: 0 0 24px 0;
+    margin: 8px 0 0 0;
+  }
+
+  .token_symbol {
+    font-size: 16px;
+    font-weight: 200;
+    font-style: italic;
+
+    margin-top: 0;
+    margin-bottom: 24px;
   }
 
   p {

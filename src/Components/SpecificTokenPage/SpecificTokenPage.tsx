@@ -192,6 +192,7 @@ function SpecificTokenPage() {
     <div>
       <div className="specific_token_block">
         <h4>{FetchedData?.data.name}</h4>
+        <p className="token_symbol">{FetchedData?.data.symbol}</p>
         <div className="price_block">
           <p>{TokenPrice}</p>
           <p style={{'color': PercentChangeColor}}>{PercentChange}</p>
