@@ -29,6 +29,58 @@
           animation: 2s slideFromBottom;
 }
 
+.currency, .top6_currency {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+  background-color: #3F0071;
+  border-radius: 5px;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  -webkit-transition: all 0.15s;
+  transition: all 0.15s;
+}
+
+.currency h4, .top6_currency h4 {
+  font-weight: 500;
+}
+
+.currency p, .top6_currency p {
+  font-weight: 200;
+  font-style: italic;
+}
+
+.currency h4, .currency p, .top6_currency h4, .top6_currency p {
+  color: white;
+  font-family: Kanit;
+  margin: 8px;
+}
+
+.currency:hover, .top6_currency:hover {
+  background-color: #610094;
+  cursor: pointer;
+}
+
+.currency:hover h4, .top6_currency:hover h4 {
+  letter-spacing: 0.3px;
+}
+
+.currency {
+  width: 1170px;
+}
+
+.top6_currency {
+  width: 450px;
+}
+
 .mainpage_top_block {
   display: -webkit-box;
   display: -ms-flexbox;
@@ -168,6 +220,89 @@
   letter-spacing: 0.3px;
 }
 
+.token_sort_block {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+  width: 1175px;
+  margin: 0 auto 16px;
+  -webkit-box-pack: stretch;
+      -ms-flex-pack: stretch;
+          justify-content: stretch;
+  gap: 16px;
+}
+
+.token_sort_block input {
+  -webkit-box-flex: 1;
+      -ms-flex-positive: 1;
+          flex-grow: 1;
+  border-radius: 2px;
+  border: none;
+  aspect-ratio: 6/1;
+  font-family: Kanit;
+  font-size: 16px;
+  color: white;
+  text-align: center;
+}
+
+.token_sort_block input::-webkit-input-placeholder {
+  color: white;
+}
+
+.token_sort_block input:-ms-input-placeholder {
+  color: white;
+}
+
+.token_sort_block input::-ms-input-placeholder {
+  color: white;
+}
+
+.token_sort_block input::placeholder {
+  color: white;
+}
+
+.token_sort_block input::-webkit-inner-spin-button, .token_sort_block input::-webkit-outer-spin-button {
+  -webkit-appearance: none;
+}
+
+.token_sort_block .input_price, .token_sort_block textarea {
+  background-color: #150050;
+}
+
+.token_sort_block .input_change, .token_sort_block textarea {
+  background-color: #610094;
+}
+
+.token_list {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  width: 1180px;
+  margin: 0 auto 64px;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  gap: 6px;
+}
+
+.token_list_title {
+  color: white;
+  font-style: italic;
+  font-family: Kanit;
+  text-align: center;
+  font-size: 32px;
+  margin-top: 6px;
+  margin-bottom: 16px;
+}
+
 @media screen and (max-width: 950px) {
   .mainpage_top_block {
     -webkit-box-orient: vertical;
@@ -185,10 +320,38 @@
   .mainpage_top_block .top6_block .top6_block_row {
     margin: 0 16px;
   }
+  .mainpage_top_block .top6_block .top6_block_row .top6_currency {
+    width: 100%;
+    height: 50px;
+  }
+  .mainpage_top_block .top6_block .top6_block_row .top6_currency h4, .mainpage_top_block .top6_block .top6_block_row .top6_currency p {
+    font-size: 16px;
+  }
   .mainpage_top_block .biggest_change_block {
     aspect-ratio: none;
     width: 100%;
     margin-top: 0;
+  }
+  .token_sort_block {
+    width: 100%;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+            flex-direction: column;
+  }
+  .token_sort_block input {
+    font-size: 32px;
+  }
+  .token_list {
+    width: 100%;
+    margin: 0 0 16px 0;
+  }
+  .token_list .currency {
+    width: 100%;
+    height: 100px;
+  }
+  .token_list .currency h4, .token_list .currency p {
+    font-size: 32px;
   }
 }
 
@@ -211,6 +374,27 @@
   }
   .mainpage_top_block .top6_block .top6_block_row .top6_currency {
     width: 95%;
+  }
+  .token_sort_block {
+    width: 100%;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+            flex-direction: column;
+  }
+  .token_sort_block input {
+    font-size: 16px;
+  }
+  .token_list {
+    width: 100%;
+    margin: 0 0 16px 0;
+  }
+  .token_list .currency {
+    width: 100%;
+    height: auto;
+  }
+  .token_list .currency h4, .token_list .currency p {
+    font-size: 16px;
   }
 }
 /*# sourceMappingURL=MainPage.css.map */

@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useState, useRef, MutableRefObject } from "react";
 
 import "./MainPage.css"
 
@@ -23,10 +23,20 @@ interface FetchedData {
 
 function MainPage() {
   const [Currencies, SetCurrencies] = useState<FetchedData>();
+  const [FilteredTokens, SetFilteredTokens] = useState<TokenData[]>();
+
+  const MaxPriceInputRef = useRef() as MutableRefObject<HTMLInputElement>;
+  const MinPriceInputRef = useRef() as MutableRefObject<HTMLInputElement>;
+  const MaxChangeInputRef = useRef() as MutableRefObject<HTMLInputElement>;
+  const MinChangeInputRef = useRef() as MutableRefObject<HTMLInputElement>;
 
   useEffect(() => {
     PullCurrencies();
   }, []);
+
+  useEffect(() => {
+    FilterTokens();
+  }, [Currencies]);
 
   const ConvertPrice = (price: string | undefined) => {
     if (price) {
@@ -45,6 +55,27 @@ function MainPage() {
       // user will be redirected to bitcoin info as a placeholder token
       window.location.href = '/info_bitcoin';
     }
+  }
+
+  const FilterTokens = () => {
+    const maxPrice: number = MaxPriceInputRef.current && typeof MaxPriceInputRef.current.value !== 'undefined' ? parseFloat(MaxPriceInputRef.current.value) : 99999;
+    const minPrice: number = MinPriceInputRef.current && typeof MinPriceInputRef.current.value !== 'undefined' ? parseFloat(MinPriceInputRef.current.value) : 0;
+    const maxChange: number = MaxChangeInputRef.current && typeof MaxChangeInputRef.current.value !== 'undefined' ? parseFloat(MaxChangeInputRef.current.value) : 99999;
+    const minChange: number = MinChangeInputRef.current && typeof MinChangeInputRef.current.value !== 'undefined' ? parseFloat(MinChangeInputRef.current.value) : -99999;
+
+    const FilteredArray: TokenData[] | undefined = Currencies?.data.filter((cur) => {
+      const price = parseFloat(cur.priceUsd);
+      const change = parseFloat(cur.changePercent24Hr);
+
+      if (price > maxPrice || price < minPrice || change > maxChange || change < minChange) {
+        return false;
+      }
+      else {
+        return true;
+      }
+    });
+
+    SetFilteredTokens(FilteredArray);
   }
   
   const DisplayBiggestChange = () => {
@@ -125,6 +156,23 @@ function MainPage() {
         }
         {
           DisplayBiggestChange()
+        }
+      </div>
+      <h3 className="token_list_title">List of All Tokens</h3>
+      <div className="token_sort_block">
+        <input ref={MinPriceInputRef} onChange={FilterTokens} className="input_price" type={'number'} placeholder='Min Price' />
+        <input ref={MaxPriceInputRef} onChange={FilterTokens} className="input_price" type={'number'} placeholder='Max Price' />
+        <input ref={MinChangeInputRef} onChange={FilterTokens} className="input_change" type={'number'} placeholder='Min Change' />
+        <input ref={MaxChangeInputRef} onChange={FilterTokens} className="input_change" type={'number'} placeholder='Max Change' />
+      </div>
+      <div className="token_list">
+        {
+          FilteredTokens?.map((token) => {
+            return <div onClick={() => GoToTokenPage(token.id)} className="currency">
+              <h4>{token.name}</h4>
+              <p>{ConvertPrice(token.priceUsd)}</p>
+            </div>
+          })
         }
       </div>
     </div>
