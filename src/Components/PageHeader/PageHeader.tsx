@@ -40,7 +40,7 @@ function PageHeader() {
   }, [Currencies]);
 
   const OnCurrencyChange = (value: string) => {
-    window.location.href = `/CryptoTracker-v2/info_${value}`;
+    window.location.href = `/info_${value}`;
   }
 
   // Pulling Currencies data and saving it using CoinCap API
@@ -64,7 +64,7 @@ function PageHeader() {
 
   return (
     <div className="page_header">
-      <a href="/CryptoTracker-v2"><h4>CryptoTracker</h4></a>
+      <a href="/"><h4>CryptoTracker</h4></a>
       <Select placeholder={'Select Currency'} onChange={(newValue) => {
         if (newValue) {
           OnCurrencyChange(newValue.value);
