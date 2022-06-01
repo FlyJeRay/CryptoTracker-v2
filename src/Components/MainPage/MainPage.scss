@@ -219,7 +219,7 @@ $tabletWidthTrigger: 950px;
   flex-direction: column;
   
   width: 1180px;
-  margin: 0 auto 64px;
+  margin: 0 auto 32px;
 
   align-items: center;
 
@@ -245,17 +245,21 @@ $tabletWidthTrigger: 950px;
       width: 100%;
       margin-bottom: 0;
       margin-top: 6px;
-      padding: 0;
+      padding: 16px 0;
+      
+      height: auto;
 
       .top6_block_row {
+        flex-direction: column;
         margin: 0 16px;
 
         .top6_currency {
           width: 100%;
-          height: 50px;
+          height: 100px;
     
           h4, p {
-            font-size: 16px;
+            font-size: 32px;
+            margin: 0 16px;
           }
         }
       }
@@ -282,11 +286,12 @@ $tabletWidthTrigger: 950px;
     margin: 0 0 16px 0;
 
     .currency {
-      width: 100%;
+      width: 95%;
       height: 100px;
 
       h4, p {
         font-size: 32px;
+        margin: 0 16px;
       }
     }
   }
@@ -301,7 +306,6 @@ $tabletWidthTrigger: 950px;
       padding: 16px 0;
 
       .top6_block_row {
-
         margin: 0;
         flex-direction: column;
         align-items: center;
@@ -309,6 +313,11 @@ $tabletWidthTrigger: 950px;
         
         .top6_currency {
           width: 95%;
+          height: 50px;
+
+          h4, p {
+            font-size: 16px;
+          }
         }
       }
     }
@@ -329,7 +338,7 @@ $tabletWidthTrigger: 950px;
 
     .currency {
       width: 100%;
-      height: auto;
+      height: 50px;
 
       h4, p {
         font-size: 16px;

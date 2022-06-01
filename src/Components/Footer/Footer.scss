@@ -1,0 +1,47 @@
+$phoneWidthTrigger: 500px;
+$tabletWidthTrigger: 950px;
+
+.footer_block {
+  display: flex;
+  flex-direction: column;
+
+  max-width: 1150px;
+  width: 100%;
+
+  margin: 0 auto 32px;
+
+  bottom: 0px;
+
+  a, p {
+    color: whitesmoke;
+    font-family: Kanit;
+    margin: 0;
+  }
+
+  a {
+    transition: all 0.15s;
+    &:hover {
+      letter-spacing: 0.5px;
+    }
+  }
+}
+
+@media screen and (max-width: $tabletWidthTrigger) {
+  .footer_block {
+    width: auto;
+    margin: 32px 20px;
+
+    a, p {
+      font-size: 28px;
+    }
+  }
+}
+
+@media screen and (max-width: $phoneWidthTrigger) {
+  .footer_block {
+    margin: 0 16px 32px;
+    a, p {
+      font-size: 16px;
+    }
+  }
+}
