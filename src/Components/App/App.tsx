@@ -12,8 +12,8 @@ function App() {
       <div className="App">
         <PageHeader/>
         <Routes>
-          <Route path='/' element={<MainPage/>} />
-          <Route path='/info_:id' element={<SpecificTokenPage/>}/>
+          <Route path='/CryptoTracker-v2/' element={<MainPage/>} />
+          <Route path='/CryptoTracker-v2/info_:id' element={<SpecificTokenPage/>}/>
         </Routes>
       </div>
     </Router>
