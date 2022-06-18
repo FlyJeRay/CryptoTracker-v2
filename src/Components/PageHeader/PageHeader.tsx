@@ -40,7 +40,7 @@ function PageHeader() {
   }, [Currencies]);
 
   const OnCurrencyChange = (value: string) => {
-    window.location.href = `/info_${value}`;
+    window.location.href = `/CryptoTracker-v2/info_${value}`;
   }
 
   // Pulling Currencies data and saving it using CoinCap API
