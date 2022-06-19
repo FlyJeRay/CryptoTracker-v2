@@ -44,6 +44,7 @@ function PageHeader() {
 
   const OnCurrencyChange = (value: string) => {
     sessionStorage.setItem('ctv2-token-id-saved', value);
+    window.dispatchEvent(new Event('onChange'));
 
     navigate('/CryptoTracker-v2/info');
   }

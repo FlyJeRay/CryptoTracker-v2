@@ -33,6 +33,11 @@ interface FetchedPriceData {
 }
 
 function SpecificTokenPage() {
+  const [workaroundBoolean, setWorkaroundBoolean] = useState(false);
+  window.addEventListener('onChange', () => {
+    setWorkaroundBoolean(!workaroundBoolean);
+  })
+
   const [FetchedData, SetFetchedData] = useState<FetchedData>();
 
   const [ChartData, SetChartData] = useState<{x: number, y: number}[]>([]);
@@ -63,7 +68,7 @@ function SpecificTokenPage() {
     }
     
     PullTokenData();
-  }, []);
+  }, [workaroundBoolean]);
 
   const onPhoneSizeHandle = (matches: boolean) => {
     if (matches) {
