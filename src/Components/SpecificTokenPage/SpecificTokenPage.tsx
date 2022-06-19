@@ -170,12 +170,7 @@ function SpecificTokenPage() {
   }
  
   const PullTokenData = async () => {
-    // Getting token name from URL.
-    // -- Example:  url is '/info_bitcoin'
-    // -- Splits into '/info' and 'bitcoin'
-    // -- 'token' assigns to 'bitcoin'
-    const url = window.location.pathname;
-    const token = url.split('_')[1];
+    const token = sessionStorage.getItem('ctv2-token-id-saved');
 
     const data = await fetch(`https://api.coincap.io/v2/assets/${token}`);
     const json: FetchedData = await data.json();

@@ -48,13 +48,9 @@ function MainPage() {
 
   const GoToTokenPage = (tokenName?: string) => {
     if (tokenName) {
-      window.location.href = `/CryptoTracker-v2/info_${tokenName}`;
+      sessionStorage.setItem('ctv2-token-id-saved', tokenName);
     }
-    else {
-      // in case if tokenName is undefined (I don't know, why would that happen, but that is possible),
-      // user will be redirected to bitcoin info as a placeholder token
-      window.location.href = '/CryptoTracker-v2/info_bitcoin';
-    }
+    window.location.href = '/CryptoTracker-v2/info';
   }
 
   const FilterTokens = () => {

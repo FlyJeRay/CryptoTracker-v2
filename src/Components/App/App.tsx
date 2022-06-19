@@ -13,7 +13,7 @@ function App() {
         <PageHeader/>
         <Routes>
           <Route path='/CryptoTracker-v2/' element={<MainPage/>} />
-          <Route path='/CryptoTracker-v2/info_:id' element={<SpecificTokenPage/>}/>
+          <Route path='/CryptoTracker-v2/info' element={<SpecificTokenPage/>}/>
         </Routes>
       </div>
     </Router>

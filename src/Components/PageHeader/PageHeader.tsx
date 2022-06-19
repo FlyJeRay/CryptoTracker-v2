@@ -40,7 +40,9 @@ function PageHeader() {
   }, [Currencies]);
 
   const OnCurrencyChange = (value: string) => {
-    window.location.href = `/CryptoTracker-v2/info_${value}`;
+    sessionStorage.setItem('ctv2-token-id-saved', value);
+
+    window.location.href = `/CryptoTracker-v2/info`;
   }
 
   // Pulling Currencies data and saving it using CoinCap API
