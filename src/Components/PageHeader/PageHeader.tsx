@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from "react";
+import { useNavigate } from "react-router-dom";
 import Select from "react-select";
 
 import "./PageHeader.css";
@@ -28,6 +29,8 @@ interface SelectOption {
 }
 
 function PageHeader() {
+  const navigate = useNavigate();
+
   const [Currencies, SetCurrencies] = useState<FetchedData>();
   const [SelectOptions, SetSelectOptions] = useState<SelectOption[]>();
 
@@ -42,7 +45,7 @@ function PageHeader() {
   const OnCurrencyChange = (value: string) => {
     sessionStorage.setItem('ctv2-token-id-saved', value);
 
-    window.location.href = `/CryptoTracker-v2/info`;
+    navigate('/CryptoTracker-v2/info');
   }
 
   // Pulling Currencies data and saving it using CoinCap API

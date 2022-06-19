@@ -1,4 +1,5 @@
 import React, { useEffect, useState, useRef, MutableRefObject } from "react";
+import { useNavigate } from 'react-router-dom';
 
 import "./MainPage.css"
 
@@ -22,6 +23,8 @@ interface FetchedData {
 }
 
 function MainPage() {
+  const navigate = useNavigate();
+
   const [Currencies, SetCurrencies] = useState<FetchedData>();
   const [FilteredTokens, SetFilteredTokens] = useState<TokenData[]>();
 
@@ -50,7 +53,7 @@ function MainPage() {
     if (tokenName) {
       sessionStorage.setItem('ctv2-token-id-saved', tokenName);
     }
-    window.location.href = '/CryptoTracker-v2/info';
+    navigate('/CryptoTracker-v2/info')
   }
 
   const FilterTokens = () => {
