@@ -1,5 +1,6 @@
-import React, { useEffect, useState, useRef, MutableRefObject } from "react";
+import React, { useEffect, useState, useRef, MutableRefObject, useContext } from "react";
 import { useNavigate } from 'react-router-dom';
+import { TokenContext } from "../../tokenContext";
 
 import "./MainPage.css"
 
@@ -24,6 +25,7 @@ interface FetchedData {
 
 function MainPage() {
   const navigate = useNavigate();
+  const { ctx_value, ctx_setter } = useContext(TokenContext);
 
   const [Currencies, SetCurrencies] = useState<FetchedData>();
   const [FilteredTokens, SetFilteredTokens] = useState<TokenData[]>();
@@ -51,7 +53,7 @@ function MainPage() {
 
   const GoToTokenPage = (tokenName?: string) => {
     if (tokenName) {
-      sessionStorage.setItem('ctv2-token-id-saved', tokenName);
+      ctx_setter(tokenName);
     }
     navigate('/CryptoTracker-v2/info')
   }

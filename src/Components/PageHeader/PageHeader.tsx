@@ -1,6 +1,7 @@
-import React, { useEffect, useState } from "react";
+import React, { useContext, useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import Select from "react-select";
+import { TokenContext } from "../../tokenContext";
 
 import "./PageHeader.css";
 
@@ -30,6 +31,7 @@ interface SelectOption {
 
 function PageHeader() {
   const navigate = useNavigate();
+  const { ctx_value, ctx_setter } = useContext(TokenContext);
 
   const [Currencies, SetCurrencies] = useState<FetchedData>();
   const [SelectOptions, SetSelectOptions] = useState<SelectOption[]>();
@@ -43,7 +45,7 @@ function PageHeader() {
   }, [Currencies]);
 
   const OnCurrencyChange = (value: string) => {
-    sessionStorage.setItem('ctv2-token-id-saved', value);
+    ctx_setter(value);
     window.dispatchEvent(new Event('onChange'));
 
     navigate('/CryptoTracker-v2/info');

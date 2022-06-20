@@ -1,6 +1,7 @@
-import React, { useEffect, useState } from "react";
+import React, { useContext, useEffect, useState } from "react";
 import { useMediaQuery } from "react-responsive";
 import { XYPlot, LineSeries, VerticalGridLines, HorizontalGridLines, XAxis, YAxis } from 'react-vis';
+import { TokenContext } from "../../tokenContext";
 
 import "./SpecificTokenPage.css"
 
@@ -36,7 +37,9 @@ function SpecificTokenPage() {
   const [workaroundBoolean, setWorkaroundBoolean] = useState(false);
   window.addEventListener('onChange', () => {
     setWorkaroundBoolean(!workaroundBoolean);
-  })
+  });
+
+  const { ctx_value, ctx_setter } = useContext(TokenContext);
 
   const [FetchedData, SetFetchedData] = useState<FetchedData>();
 
@@ -175,7 +178,7 @@ function SpecificTokenPage() {
   }
  
   const PullTokenData = async () => {
-    const token = sessionStorage.getItem('ctv2-token-id-saved');
+    const token = ctx_value;
 
     const data = await fetch(`https://api.coincap.io/v2/assets/${token}`);
     const json: FetchedData = await data.json();
